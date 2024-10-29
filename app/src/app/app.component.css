@@ -1,0 +1,59 @@
+/* Existing nav styles */
+
+.links {
+    list-style: none; /* Remove bullet points from list */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.links > li {
+    position: relative; /* Position for dropdowns */
+    display: inline-block; /* Inline for horizontal layout */
+    padding: 10px; /* Padding around links */
+}
+
+.sub-links {
+    display: none; /* Initially hide sub-links */
+    position: absolute; /* Position dropdowns */
+    top: 100%; /* Position below the parent */
+    left: 0; /* Align to the left */
+    background-color: #fff; /* Background for dropdown */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    z-index: 1000; /* Ensure dropdown is above other content */
+}
+
+.links > li:hover .sub-links {
+    display: block; /* Show dropdown on hover */
+}
+
+.sub-links li {
+    display: block; /* Display sub-links as block */
+}
+
+.sub-links a {
+    padding: 10px 20px; /* Padding for sub-links */
+    display: block; /* Block for full width */
+    color: #000; /* Text color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.sub-links a:hover {
+    background-color: #f0f0f0; /* Hover background for sub-links */
+}
+
+/* Arrow styles */
+.arrow {
+    display: inline-block; /* Allow margin */
+    width: 0; 
+    height: 0; 
+    margin-left: 5px; /* Space between text and arrow */
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000; /* Arrow color */
+    transition: transform 0.2s; /* Animation for hover effect */
+}
+
+/* Optional: Rotate arrow on hover for effect */
+.dropdown-toggle:hover .arrow {
+    transform: translateY(-2px); /* Move arrow slightly up */
+}
