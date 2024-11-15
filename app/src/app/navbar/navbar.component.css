@@ -1,0 +1,114 @@
+/* General Styles for Navbar */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+    height: 50px;
+    margin-right: 20px;
+}
+
+nav p {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(2, 0, 99);
+    margin-right: auto;
+}
+
+/* Checkbox for responsive menu */
+#bar {
+    display: none;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-icon {
+    display: none;
+}
+
+/* Main Links Styling */
+.links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.links > li {
+    position: relative;
+}
+
+.links a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(2, 0, 99);
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: #10c9c3;
+}
+
+/* Sub-menu (Dropdown) Styling */
+.sub-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.links > li:hover .sub-links {
+    display: block;
+}
+
+.sub-links li {
+    width: 100%;
+}
+
+
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: rgb(2, 0, 99);
+    }
+
+    .links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        flex-direction: column;
+        gap: 0;
+        border-top: 1px solid #ddd;
+    }
+
+    #bar:checked ~ .menu .links {
+        display: flex;
+    }
+
+    .links > li {
+        width: 100%;
+        text-align: center;
+    }
+}

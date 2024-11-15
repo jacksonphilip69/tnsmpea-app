@@ -1,1 +1,11 @@
-<p>district-members works!</p>
+<div class="full-page">
+    <h2 class="heading">District Body Members</h2>
+    <div class="district-members">
+      <div class="member-card" *ngFor="let member of members">
+        <img [src]="member.photo" alt="{{ member.name }}" class="member-photo">
+        <h3 class="member-name">{{ member.name }}</h3>
+        <p class="member-role">{{ member.role }}</p>
+      </div>
+    </div>
+  </div>
+  

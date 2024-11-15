@@ -1,1 +1,59 @@
-<p>payment works!</p>
+<div class="payment-container">
+    <h2>Subscription Payment</h2>
+    <p>Please complete your payment to subscribe to our services.</p>
+
+    <form id="paymentForm">
+        <label for="customerId">Customer ID:</label>
+        <input type="text" id="customerId" name="customerId" required placeholder="Enter your ID" />
+
+        <label for="amount">Amount (INR):</label>
+        <input type="number" id="amount" name="amount" required placeholder="Enter amount" />
+
+        <button type="button" onclick="initiateSubscription()">Pay with Paytm</button>
+
+        
+    </form>
+</div>
+
+<!-- Include Paytm's Checkout JS -->
+<script src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/YOUR_MERCHANT_ID.js"></script>
+
+<script>
+    function initiateSubscription() {
+        // Get form values
+        const customerId = document.getElementById('customerId').value;
+        const amount = document.getElementById('amount').value;
+
+        // Fetch txnToken from your backend API
+        fetch("https://yourdomain.com/initiateSubscription", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ customerId, amount, planId: "YOUR_PLAN_ID" })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const config = {
+                root: "",
+                flow: "DEFAULT",
+                data: {
+                    orderId: data.orderId,
+                    token: data.txnToken,
+                    tokenType: "TXN_TOKEN",
+                    amount: amount
+                },
+                handler: {
+                    notifyMerchant: function (eventName, data) {
+                        console.log("Event: ", eventName, "Data: ", data);
+                    }
+                }
+            };
+
+            Paytm.CheckoutJS.init(config)
+                .then(() => Paytm.CheckoutJS.invoke())
+                .catch(err => console.log("Error initiating payment: ", err));
+        })
+        .catch(error => console.error("Error fetching token: ", error));
+    }
+</script>

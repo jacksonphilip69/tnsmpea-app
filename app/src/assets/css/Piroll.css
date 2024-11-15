@@ -1,3 +1,6 @@
+
+@import 'swiper/swiper-bundle.css';
+
 /* Start Variables */
 :root {
     --Main-color: #10c9c3;
@@ -89,16 +92,6 @@ ul {
     line-height: 1.5;
 }
 /* End Components */
-/* Start Header */
-header {
-    min-height: 80vh;
-    background-image: url("../images/Landing-Photo.webp");
-    background-position-y: -200px;
-    background-size: cover;
-    background-color: var(--O-white-c);
-    position: relative;
-    overflow: hidden;
-}
 @media screen and (max-width: 992px) {
     header {
         background-image: url("../images/Landing-Photo-media.webp");
