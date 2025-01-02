@@ -450,45 +450,24 @@ header .container .text button:hover {
     transform: translateX(-50%);
 }
 /* End regionss Process Section */
-/* Start depots */
-#depots {
+/* Start gallerry */
+#gallerry {
     background-color: var(--O-white-c);
     padding: var(--Padding-of-Section) 0;
 }
-#depots .container {
+#gallerry .container {
     display: grid;
     grid-template-columns: repeat(4, auto);
     justify-content: space-around;
     align-items: center;
 }
 @media screen and (max-width: 1024px) {
-    #depots .container {
+    #gallerry .container {
         display: flex;
         flex-wrap: wrap;
     }
 }
-#depots .s-box {
-    text-align: center;
-    width: 250px;
-    margin: 20px auto;
-}
-#depots .s-box i {
-    color: #656565;
-}
-#depots .s-box h3 {
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #191919;
-    font-weight: 600;
-    margin: 15px 0;
-}
-#depots .s-box p {
-    font-family: "Nunito Sans", sans-serif;
-    color: var(--T-white-c);
-    font-weight: 400;
-    line-height: 30px;
-}
-/* End depots */
+
 /* Start Testimonials */
 #testimonials {
     padding: 200px 0;
